@@ -9,8 +9,6 @@ interface Props extends TextProps {
 }
 
 const ThemedText = ({ className, type, ...rest }: Props) => {
-
-    console.log(className)
   return (
     <Text
     className={[
