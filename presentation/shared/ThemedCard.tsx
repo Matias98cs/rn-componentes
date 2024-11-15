@@ -9,6 +9,7 @@ const ThemedCard = ({ className, children, ...rest }: Props) => {
   return (
     <View
       className={`bg-white dark:bg-black/10 rounded-xl p shadow shadow-black/5 ${className}`}
+      {...rest}
     >
       {children}
     </View>
