@@ -1,4 +1,5 @@
 import { useThemeColor } from "@/hooks/useThemeColor";
+import FadeInImage from "@/presentation/images/FadeInImage";
 import ThemedText from "@/presentation/shared/ThemedText";
 import ThemedView from "@/presentation/shared/ThemedView";
 import { useState } from "react";
@@ -23,7 +24,8 @@ const InfiniteScrollScreen = () => {
     <ThemedView>
       <FlatList
         data={numbers}
-        renderItem={({ item }) => <ListItem number={item} />}
+        // renderItem={({ item }) => <ListItem number={item} />}
+        renderItem={({ item }) => <ComponentFadeInImage number={item} />}
         onEndReached={loadMore}
         onEndReachedThreshold={0.6}
         ListFooterComponent={() => (
@@ -45,6 +47,21 @@ export default InfiniteScrollScreen;
 interface ListItemsProps {
   number: number;
 }
+
+// Componente con animación customizada para Ios por que no tiene animacion por defecto
+const ComponentFadeInImage = ({ number }: ListItemsProps) => {
+  return (
+    <FadeInImage
+      uri={`https://picsum.photos/id/${number}/500/350`}
+      style={{
+        height: 350,
+        width: "100%",
+      }}
+    />
+  );
+};
+
+// Componente con animation por defecto en android
 const ListItem = ({ number }: ListItemsProps) => {
   return (
     <Image
