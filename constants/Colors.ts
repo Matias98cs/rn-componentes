@@ -20,6 +20,10 @@ export const Colors = {
     success: '#3a9d78',
 
     text: '#ECEDEE',
-    background: '#17202A',
+    background: '#020D19',
+    // background: '#101720',
+    // background: '#171717'
+    // background: '#0C0C0C',
+    // background: '#17202A',
   },
 };
