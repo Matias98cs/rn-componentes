@@ -4,17 +4,21 @@ import ThemedSwitch from "@/presentation/shared/ThemedSwitch";
 import ThemedView from "@/presentation/shared/ThemedView";
 import { useState } from "react";
 import { View, Text } from "react-native";
+import { useThemeChangerContext } from "@/presentation/context/ThemeChangerContext";
 
 const ThemesScreen = () => {
-  const { colorScheme, setColorScheme } = useColorScheme();
+  // const { colorScheme, setColorScheme } = useColorScheme();
+  const { toggleTheme, currentTheme, isSystemTheme, setSystemTheme } =
+    useThemeChangerContext();
 
   const [darkModeSettings, setDarkModeSettings] = useState({
-    darkMode: colorScheme === "dark",
-    systemMode: false,
+    darkMode: currentTheme === "dark",
+    systemMode: isSystemTheme,
   });
 
   const setDarkMode = (value: boolean) => {
-    setColorScheme(value ? "dark" : "light");
+    // setColorScheme(value ? "dark" : "light");
+    toggleTheme();
     setDarkModeSettings({
       darkMode: value,
       systemMode: false,
@@ -22,6 +26,10 @@ const ThemesScreen = () => {
   };
 
   const setSystemMode = (value: boolean) => {
+    if (value) {
+      setSystemTheme();
+    }
+
     setDarkModeSettings({
       darkMode: darkModeSettings.darkMode,
       systemMode: value,
