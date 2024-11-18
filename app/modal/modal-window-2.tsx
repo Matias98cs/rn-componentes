@@ -6,29 +6,20 @@ import { StatusBar } from "expo-status-bar";
 import ThemedButton from "@/presentation/shared/ThemedButton";
 import { router } from "expo-router";
 
-const ModalScreen = () => {
+const ModalScreenDos = () => {
   return (
-    <ThemedView
-      className="justify-center items-center flex-1"
-      bgColor="#A52182"
-    >
-      <ThemedText>Modal Screen</ThemedText>
+    <ThemedView className="justify-center items-center flex-1">
       <ThemedText className="text-center pt-5 underline" type="h2">
-        Soy un Modal
+        Hola, soy otro Modal
       </ThemedText>
 
-      <ThemedButton
-        onPress={() => router.push("/modal/modal-window-2")}
-        className="my-4"
-      >
-        Abrir Otro Modal
+      <ThemedButton onPress={() => router.dismiss()} className="mt-4">
+        Cerrar
       </ThemedButton>
-
-      <ThemedButton onPress={() => router.dismiss()}>Cerrar</ThemedButton>
 
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </ThemedView>
   );
 };
 
-export default ModalScreen;
+export default ModalScreenDos;

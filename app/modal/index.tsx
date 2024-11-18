@@ -1,5 +1,6 @@
+import ThemedButton from "@/presentation/shared/ThemedButton";
 import ThemedView from "@/presentation/shared/ThemedView";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { View, Text } from "react-native";
 
 const ModalScreen = () => {
@@ -10,6 +11,13 @@ const ModalScreen = () => {
           Abrir Modal
         </Text>
       </Link>
+
+      <ThemedButton
+        onPress={() => router.push("/modal/modal-window")}
+        className="mx-4"
+      >
+        Abrir Modal
+      </ThemedButton>
     </ThemedView>
   );
 };
